@@ -3,3 +3,4 @@ http2socks
 bin
 build/tgz
 build/rpm/rpmbuild
+.DS_Store
