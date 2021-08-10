@@ -1,0 +1,5 @@
+http2socks
+.vscode
+bin
+build/tgz
+build/rpm/rpmbuild
