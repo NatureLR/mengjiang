@@ -111,7 +111,7 @@ func forward(dst, src net.Conn) {
 		defer wg.Done()
 		_, err := io.Copy(dst, src)
 		if err != nil {
-			log.Println(err)
+			checkErr(err)
 		}
 	}
 
