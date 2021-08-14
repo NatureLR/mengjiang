@@ -71,6 +71,7 @@ func (s *server) handleConnection() {
 	checkErr(err)
 	dc, err := dialer.Dial("tcp", destAddr)
 	checkErr(err)
+	defer dc.Close()
 
 	if s.Mode == "forward" {
 		x := make([]byte, 1024)
@@ -111,7 +112,7 @@ func forward(dst, src net.Conn) {
 		defer wg.Done()
 		_, err := io.Copy(dst, src)
 		if err != nil {
-			checkErr(err)
+			log.Panicln(err)
 		}
 	}
 
